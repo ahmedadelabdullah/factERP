@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/test', 'testController');
 Route::resource('/dashboard', 'admin\AdminstratorController');
-Route::resource('/tex', 'admin\TexesInvoiceController');
+Route::resource('/tex', 'admin\TexesInfoController');
 Route::resource('/supplier', 'admin\SupplierController');
 
 

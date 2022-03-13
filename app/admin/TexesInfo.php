@@ -15,10 +15,12 @@ class TexesInfo extends Model
         'comment',
         'total_rolls',
         'total_amount',
-        'no_classes'
+        'no_classes',
+        'image'
     ];
     protected $hidden = ['updated_at , created_at'];
-    public function rows(){
+    public function rows(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(TexesInvoice::class , 'texes_info_id' , 'id');
     }
 

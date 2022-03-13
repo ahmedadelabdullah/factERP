@@ -3,7 +3,7 @@
 @section('title' , 'New invoice')
 
 @section('content')
-    <form class="row invoice_details w-75 m-auto" id="invoice_details" method="POST" action="{{route('tex.store')}}">
+    <form class="row invoice_details w-75 m-auto" id="invoice_details" method="POST" action="{{route('tex.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="col-md-12 d-none">
             <label for="inputEmail4" class="form-label">Invoice Number</label>
@@ -18,6 +18,10 @@
                     <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="col-md-12">
+            <label for="inputPa" class="form-label my-md-4">image</label>
+            <input type="file" class="form-control image" id="material" name="image" >
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Invoice Number</label>
@@ -34,6 +38,8 @@
                 <label for="inputPassword5" class="form-label my-md-4">Material</label>
                 <input type="text" class="form-control material" id="material" name="material[0]" autocomplete="off">
             </div>
+
+
 
             <div class="col-md-2">
                 <label for="inputPassword5" class="form-label my-md-4 float-left">Rolls Number</label>

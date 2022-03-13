@@ -55,6 +55,14 @@ return [
             'visibility' => 'public',
         ],
 
+
+//        'tex' => [
+//            'driver' => 'local',
+//            'root' => storage_path('public/admin/dist/img/tex/'),
+//            'url' => env('APP_URL').'/public',
+//            'visibility' => 'public',
+//        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

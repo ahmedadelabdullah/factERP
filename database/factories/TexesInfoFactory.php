@@ -14,6 +14,7 @@ $factory->define(TexesInfo::class, function (Faker $faker) {
         'supplier_id' => Supplier::all()->random()->id,
         'date' => $faker->date('y-m-d'),
         'comment' =>$faker->sentence(10),
+        'image' =>$faker->image( 'public/admin/dist/img/tex',300 , 300),
         'total_rolls' => $faker->numberBetween(15,50),
         'total_amount' => $faker->numberBetween(22,89),
 

@@ -22,6 +22,8 @@ class CreateTexesInfosTable extends Migration
             $table->longText('comment')->nullable();
             $table->unsignedInteger('total_rolls');
             $table->unsignedInteger('total_amount');
+            $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('supplier_id')

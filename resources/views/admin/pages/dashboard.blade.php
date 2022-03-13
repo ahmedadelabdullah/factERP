@@ -8,7 +8,8 @@
             <div class="row">
                 <div class="col-12 col-sm-4 col-md-2">
                     <div class="info-box">
-                        <span class="info-box-icon elevation-1 text-center"><img src="admin/dist/img/notebook.png"></span>
+                        <span class="info-box-icon elevation-1 text-center">
+                            <img src="admin/dist/img/notebook.png" alt="note"></span>
                         <div class="info-box-content">
                             <span class="info-box-text h5 my-3"><a href="{{route('tex.index')}}">Materials</a></span>
                         </div>

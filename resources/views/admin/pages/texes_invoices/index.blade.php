@@ -27,6 +27,7 @@
                         <th>No Classes</th>
                         <th>Rolls Number</th>
                         <th>Quantity</th>
+                        <th>Image</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -40,8 +41,10 @@
         <td>{{$invoiceinf->no_classes}}</td>
         <td>{{$invoiceinf->total_rolls}}</td>
         <td>{{$invoiceinf->total_amount}}</td>
+        <td><img src="0e1f91f0507beb858a720dd36ac09285.png"/></td>
+        <td>{{$invoiceinf->image}}</td>
         <td>
-            <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf->id)}}">Show</a>
+            <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf)}}">Show</a>
             <button class="btn btn-danger">Delete</button>
         </td>
     </tr>
