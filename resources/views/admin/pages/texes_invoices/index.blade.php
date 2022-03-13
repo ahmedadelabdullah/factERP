@@ -1,7 +1,7 @@
 @extends('admin.app')
 @section('title' , 'Texes invoices')
 @section('breadcramb')
-    <li class="breadcrumb-item"><a href="{{route('tex.index')}}">Dashboard</a> /invoices</li>
+    <li class="breadcrumb-item"><a href="{{route('dashboard.index')}}">Dashboard</a> /invoices</li>
 @endsection
 @section('page_title')
     <h1 class="m-0">All Invoice's Textile </h1>
@@ -41,8 +41,7 @@
         <td>{{$invoiceinf->no_classes}}</td>
         <td>{{$invoiceinf->total_rolls}}</td>
         <td>{{$invoiceinf->total_amount}}</td>
-        <td><img src="0e1f91f0507beb858a720dd36ac09285.png"/></td>
-        <td>{{$invoiceinf->image}}</td>
+        <td><img src="{{$invoiceinf->image}}" width="30" height="30"/></td>
         <td>
             <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf)}}">Show</a>
             <button class="btn btn-danger">Delete</button>

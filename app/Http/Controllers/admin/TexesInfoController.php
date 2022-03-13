@@ -47,10 +47,9 @@ class TexesInfoController extends Controller
 
         $file_extention = $request->image->getClientOriginalExtension();
         $file_name = time().'.'.$file_extention;
-//        $pass = 'admin/dist/img/tex';
-//        $request->image ->move($pass,$file_name);
+        $pass = 'admin/dist/img/tex';
         $data['supplier_id'] = $request->supplier_id;
-        $data['image'] = $file_name;
+        $data['image'] = $request->image ->move($pass,$file_name);
         $data['invoice_number'] = $request->invoice_number;
         $data['date'] = $request->date;
         $data['total_rolls'] = $request->total_rolls;
