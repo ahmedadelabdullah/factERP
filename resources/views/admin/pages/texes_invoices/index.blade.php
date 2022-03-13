@@ -44,14 +44,18 @@
         <td><img src="{{$invoiceinf->image}}" width="30" height="30"/></td>
         <td>
             <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf)}}">Show</a>
-            <button class="btn btn-danger">Delete</button>
+{{--            <form action="{{route('tex.destroy' , $invoiceinf)}}" method="post" class="d-inline-block">--}}
+{{--                @csrf--}}
+{{--                @method('delete')--}}
+{{--                @include('admin.layout.modal')--}}
+{{--            </form>--}}
+
         </td>
     </tr>
   @endforeach
 {{--@endforeach--}}
                     </tbody>
                     <tfoot>
-
                     </tfoot>
                 </table>
                 {{$invoiceinfs->links()}}

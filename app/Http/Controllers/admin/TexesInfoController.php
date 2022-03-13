@@ -40,7 +40,7 @@ class TexesInfoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -114,10 +114,13 @@ class TexesInfoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\TexesInfo  $texesInfo
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(TexesInfo $texesInfo)
+    public function destroy($texe)
     {
-        //
+        $deleting = TexesInfo::findOrFail($texe);
+
+        $deleting->delete();
+        return redirect()->route('tex.index');
     }
 }
