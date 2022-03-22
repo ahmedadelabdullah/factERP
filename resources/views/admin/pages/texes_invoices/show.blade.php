@@ -20,21 +20,21 @@
                 <div class="card card-blue bg-blue">
                    <div class="row d-flex justify-content-center align-items-center p-3">
                    <div class="col-md-6">
-                       <h3 class="">INVOICE {{$allrow->invoice_number}} , {{$allrow->sup->name}}</h3>
+                       <h3 class="">INVOICE {{$invoiceinf->invoice_number}} , {{$invoiceinf->sup->name}}</h3>
                    </div>
                     <div class="col-md-3">
                        <div class="">
-                           <h4>Date: {{Carbon\Carbon::parse($allrow->date)->format('Y-m-d')}}</h4>
-                           <h4>Rolls Number: {{$allrow->total_rolls}}</h4>
-                           <h4>Amount: {{$allrow->total_amount}}</h4>
+                           <h4>Date: {{Carbon\Carbon::parse($invoiceinf->date)->format('Y-m-d')}}</h4>
+                           <h4>Rolls Number: {{$invoiceinf->total_rolls}}</h4>
+                           <h4>Amount: {{$invoiceinf->total_amount}}</h4>
                    </div>
                     </div>
                     <div class="col-md-3">
                        <div class="">
-                           <h4>Price: {{$allrow->total_amount}}</h4>
-                           <h4>Classes NO: {{$allrow->no_classes}}</h4>
+                           <h4>Price: {{$invoiceinf->total_amount}}</h4>
+                           <h4>Classes NO: {{$invoiceinf->no_classes}}</h4>
 
-                           <h4>Image: <a href="{{URL::asset($allrow->image)}}" target="_blank" class="btn btn-file">Image</a> </h4>
+                           <h4>Image: <a href="{{URL::asset($invoiceinf->image)}}" target="_blank" class="btn btn-file">Image</a> </h4>
                        </div>
                    </div>
                    </div>
@@ -52,7 +52,7 @@
                     </thead>
                     <tbody>
 
-                    @foreach(($allrow->rows) as $onerow)
+                    @foreach(($invoiceinf->rows) as $onerow)
                     <tr>
                         <td>{{$onerow->material}}</td>
                         <td>{{$onerow->Norolls}}</td>
@@ -70,12 +70,18 @@
                     </tfoot>
                 </table>
 
-                <div class="row p-3">
-                    <div class="form-controlr col-md-2">
-                        <a href="" class="btn btn-primary w-100">Edit</a>
+                <div class="row p-2">
+                    <div class="p-2">
+                        <a href="{{route('tex.edit',$invoiceinf)}}" class="btn btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
                     </div>
-                    <div class="col-md-2">
-                        <a href="" class="btn btn-danger w-100">Delete</a>
+                    <div class="p-2">
+                                    <form action="{{route('tex.destroy' , $invoiceinf)}}" method="post" class="d-inline-block w-100">
+                                        @csrf
+                                        @method('delete')
+                                        @include('admin.layout.modal')
+                                    </form>
                     </div>
                 </div>
 

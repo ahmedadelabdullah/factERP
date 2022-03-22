@@ -45,11 +45,13 @@ class TexesInfoController extends Controller
     public function store(Request $request)
     {
 
-        $file_extention = $request->image->getClientOriginalExtension();
-        $file_name = time().'.'.$file_extention;
-        $pass = 'admin/dist/img/tex';
         $data['supplier_id'] = $request->supplier_id;
-        $data['image'] = $request->image ->move($pass,$file_name);
+        if ($request->image !== null) {
+            $file_extention = $request->image->getClientOriginalExtension();
+            $file_name = time().'.'.$file_extention;
+            $pass = 'admin/dist/img/tex';
+            $data['image'] = $request->image ->move($pass,$file_name);
+        }
         $data['invoice_number'] = $request->invoice_number;
         $data['date'] = $request->date;
         $data['total_rolls'] = $request->total_rolls;
@@ -82,7 +84,7 @@ class TexesInfoController extends Controller
 //        $singlerow = TexesInfo::find($texesInfo);
 //        return view('admin.pages.texes_invoices.show',compact('singlerow'));
                 return view('admin.pages.texes_invoices.show',[
-                    'allrow' => TexesInfo::find($catch_inv_id),
+                    'invoiceinf' => TexesInfo::find($catch_inv_id),
                 ]);
 
     }
@@ -91,11 +93,16 @@ class TexesInfoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\TexesInfo  $texesInfo
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function edit(TexesInfo $texesInfo)
+    public function edit($texesInfoEdit)
     {
-        //
+        $texesInfoEdit = TexesInfo::findOrFail($texesInfoEdit);
+        return view('admin.pages.texes_invoices.edit' , [
+            'edit_info' => $texesInfoEdit,
+            'suppliers' => Supplier::all(),
+
+        ]);
     }
 
     /**
@@ -103,11 +110,38 @@ class TexesInfoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\TexesInfo  $texesInfo
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, TexesInfo $texesInfo)
+    public function update(Request $request,$id)
     {
-        //
+        $invoice = TexesInfo::whereId($id)->first();
+//        $data['supplier_id'] = $request->supplier_id;
+        if ($request->image !== null) {
+            $file_extention = $request->image->getClientOriginalExtension();
+            $file_name = time().'.'.$file_extention;
+            $pass = 'admin/dist/img/tex';
+            $data['image'] = $request->image ->move($pass,$file_name);
+        }
+        $data['invoice_number'] = $request->invoice_number;
+        $data['date'] = $request->date;
+        $data['total_rolls'] = $request->total_rolls;
+        $data['total_amount'] = $request->total_amount;
+        $data['comment'] = $request->comment;
+        $data['no_classes'] = count($request->material);
+
+        $invoice ->update($data);
+        $invoice->rows()->delete();
+
+        $inv_details = [];
+        for ($i = 0 ; $i < count($request->material) ; $i++){
+            $inv_details[$i]['material'] = $request->material[$i];
+            $inv_details[$i]['Norolls'] = $request->Norolls[$i];
+            $inv_details[$i]['unit_price'] = $request->unit_price[$i];
+            $inv_details[$i]['quantity'] = $request->quantity[$i];
+            $inv_details[$i]['price'] = $request->price[$i];
+        }
+        $details = $invoice->rows()->createMany($inv_details);
+        return redirect('/tex');
     }
 
     /**

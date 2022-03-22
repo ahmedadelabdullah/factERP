@@ -25,3 +25,16 @@ flex-direction: column;
     color: #ED5252FF;
     font-style: italic;
 }
+
+
+
+.form-style.bg-light {
+    background: #343a40 !important;
+    padding: 50px 0;
+    height: auto;
+}
+
+
+.label{
+    line-height: 2.4;
+}

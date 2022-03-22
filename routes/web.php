@@ -20,3 +20,11 @@ Route::resource('/', 'admin\AdminstratorController');
 Route::get('/user', function () {
     return 'iam from user';
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

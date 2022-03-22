@@ -17,7 +17,7 @@ class CreateTexesInvoicesTable extends Migration
             $table->id();
             $table->string('material');
             $table->foreignId('texes_info_id');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->string('related_models')->nullable();
             $table->unsignedSmallInteger('Norolls');
             $table->unsignedFloat('unit_price')->default(0);

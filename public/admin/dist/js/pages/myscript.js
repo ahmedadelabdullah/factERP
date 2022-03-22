@@ -25,7 +25,7 @@ $('#invoice_details').on('keyup blur' , '.quantity' , function () {
         let divCount = $('#invoice_details').find('.repeated:last').length;
         let numIncreament = divCount > 0 ? parseInt($('#invoice_details').find('.repeated:last').attr('id'))+ 1 : 0;
         $('.cont').append($(`<div class="repeated col-md-12" id='`+numIncreament+`'>
-            <div class="col-md-2 mt-3">
+            <div class="col-md-3 mt-3">
                 <input type="text" class="form-control material" name="material[`+numIncreament+`]" autocomplete="off">
             </div>
 
@@ -41,7 +41,7 @@ $('#invoice_details').on('keyup blur' , '.quantity' , function () {
         <div class="col-md-2 mt-3">
             <input type="number" class="price form-control" name="price[`+numIncreament+`]">
         </div>
-            <div class="col-md-1 mt-3">
+            <div class="col-md-1 mt-3 d-none">
 
                 <button type="reset" class="btn btn-primary" id="inputPassword5">Reset</button>
             </div>
@@ -52,9 +52,7 @@ $('#invoice_details').on('keyup blur' , '.quantity' , function () {
 
         </div>`));
     })
-    $(document).on('click' , '.del' , function (e) {
-        $(this).parent().remove();
-    });
+
     
     
     let sum_price = function ($selector) {
@@ -65,6 +63,13 @@ $('#invoice_details').on('keyup blur' , '.quantity' , function () {
         });
         return sum.toFixed(2);
     }
+
+    $(document).on('click' , '.del' , function (e) {
+        $(this).parent().remove();
+        $('.total_amount').val(sum_price('.price'));
+        $('.total_rolls').val(sum_price('.Norolls'));
+    });
+
 
     $('.pickadate').pickadate({
         format: 'yyyy-mm-dd',

@@ -41,14 +41,25 @@
         <td>{{$invoiceinf->no_classes}}</td>
         <td>{{$invoiceinf->total_rolls}}</td>
         <td>{{$invoiceinf->total_amount}}</td>
-        <td><img src="{{$invoiceinf->image}}" width="30" height="30"/></td>
+
+
+        @if($invoiceinf->image == null)
+        <td>null</td>
+        @else <td><img src="{{$invoiceinf->image}}" width="30" height="30" alt="g"/></td>
+        @endif
         <td>
-            <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf)}}">Show</a>
-{{--            <form action="{{route('tex.destroy' , $invoiceinf)}}" method="post" class="d-inline-block">--}}
-{{--                @csrf--}}
-{{--                @method('delete')--}}
-{{--                @include('admin.layout.modal')--}}
-{{--            </form>--}}
+            <a class="btn btn-primary" href="{{route('tex.show' , $invoiceinf)}}">
+                <i class="fas fa-eye"></i>
+            </a>
+                <a href="{{route('tex.edit' , $invoiceinf)}}" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                </a>
+
+            <form action="{{route('tex.destroy' , $invoiceinf)}}" method="post" class="d-inline-block">
+                @csrf
+                @method('delete')
+                @include('admin.layout.modal')
+            </form>
 
         </td>
     </tr>

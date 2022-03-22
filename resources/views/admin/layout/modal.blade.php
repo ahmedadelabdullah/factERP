@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-    Delete
+    <i class="fa fa-trash"></i>
 </button>
 
 <!-- Modal -->

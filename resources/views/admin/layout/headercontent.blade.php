@@ -1,6 +1,6 @@
 <div class="content-wrapper">
 <div class="content-header">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row mb-2">
             <div class="col-sm-6">
                 @yield('page_title')
