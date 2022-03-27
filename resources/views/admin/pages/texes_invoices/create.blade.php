@@ -14,11 +14,6 @@
     <div class="form-style bg-light">
     <form class="row invoice_details w-75 m-auto" id="invoice_details" method="POST" action="{{route('tex.store')}}" enctype="multipart/form-data">
         @csrf
-{{--        <div class="col-md-12 d-none">--}}
-{{--            <label for="inputEmail4" class="form-label">Invoice Number</label>--}}
-{{--            <input type="text" class="form-control" id="inputEmail4">--}}
-{{--            <input type="password" class="form-control" id="inputEmail4">--}}
-{{--        </div>--}}
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-3">

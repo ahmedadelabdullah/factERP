@@ -12,6 +12,7 @@ class Supplier extends Model
         , 'mobile'
         , 'title'
         , 'balance'
+        , 'supply'
     ];
 
 

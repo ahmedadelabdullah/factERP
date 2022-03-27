@@ -16,9 +16,10 @@ class CreateSuppliersTable extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('supply');
             $table->string('mobile');
             $table->string('title');
-            $table->integer('balance');
+            $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }

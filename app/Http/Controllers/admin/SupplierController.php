@@ -11,51 +11,70 @@ class SupplierController extends Controller
 
     public function index()
     {
-        $supplier = Supplier::with('texes')->find(1);
-        return $supplier;
+        return view('admin.pages.suppliers.index'  , [
+            'suppliers' => Supplier::paginate(5)
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('admin.pages.suppliers.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+//        $add_supplier = $request->all();
+        $name = $request->name;
+        $title = $request->title;
+        $supply = $request->supply;
+        $mobile = $request->mobile;
+
+        $add_supplier = Supplier::create([
+            'name' => $name,
+            'mobile' => $mobile,
+            'supply' => $supply,
+            'title' => $title,
+        ]);
+
+        return redirect()->route('supplier.index');
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Supplier  $supplier
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show(Supplier $supplier)
+    public function show($supplier)
     {
-        //
+        return view('admin.pages.suppliers.show',[
+            'supplier' => Supplier::find($supplier),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Supplier  $supplier
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function edit(Supplier $supplier)
+    public function edit($supplier)
     {
-        //
+        return view('admin.pages.suppliers.edit' , [
+            'supplier' => Supplier::findOrFail($supplier)
+        ]);
     }
 
     /**
@@ -63,11 +82,20 @@ class SupplierController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Supplier  $supplier
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update($supplier ,Request $request)
     {
-        //
+//        dd($supplier);
+        $single_supplier = Supplier::findOrFail($supplier);
+//        dd($single_supplier);
+        $single_supplier->update([
+            'name' => $request->name,
+            'mobile' => $request->mobile,
+            'supply' => $request->supply,
+            'title' => $request->title,
+        ]);
+        return redirect()->route('supplier.index');
     }
 
     /**
@@ -76,8 +104,10 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy($supplier)
     {
-        //
+        $single_supplier = Supplier::findOrFail($supplier);
+        $single_supplier->delete();
+        return redirect()->route('supplier.index');
     }
 }

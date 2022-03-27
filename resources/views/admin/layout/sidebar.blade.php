@@ -46,21 +46,22 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('dashboard.index')}}" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
-                                    <p>Level 3</p>
+                                    <p>Dashboard</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
-                                    <p>Level 3</p>
+                                    <p>Supplier</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('ore.index')}}" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
-                                    <p>Level 3</p>
+                                    <p>Ore</p>
                                 </a>
                             </li>
                         </ul>

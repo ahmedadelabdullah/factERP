@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
          $this->call(SupplierSeeder::class);
         $this->call(TexesInfoSeeder::class);
         $this->call(TexesInvoiceSeeder::class);
+        $this->call(OreSeeder::class);
     }
 }

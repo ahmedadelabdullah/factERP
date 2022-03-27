@@ -28,7 +28,8 @@ class CreateTexesInfosTable extends Migration
 
             $table->foreign('supplier_id')
                   ->on('suppliers')
-                  ->references('id');
+                  ->references('id')
+                ->OnDelete('cascade');
         });
     }
 

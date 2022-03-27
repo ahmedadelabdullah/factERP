@@ -17,8 +17,8 @@ Route::resource('/test', 'testController');
 Route::resource('/dashboard', 'admin\AdminstratorController');
 Route::resource('/tex', 'admin\TexesInfoController');
 Route::resource('/supplier', 'admin\SupplierController');
+Route::resource('/ore', 'admin\OreController');
 
 
 
 
-##### one to many #####

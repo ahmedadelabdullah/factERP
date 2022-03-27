@@ -21,6 +21,7 @@
                 <table id="example2" class="table table-bordered table-hover w-100">
                     <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Date</th>
                         <th>Invoice number</th>
                         <th>Supplier</th>
@@ -33,16 +34,16 @@
                     </thead>
                     <tbody>
 @foreach($invoiceinfs as $invoiceinf)
-{{--  @foreach($texrows as $texrow)--}}
     <tr>
+        <td>{{$invoiceinf->id}}</td>
         <td>{{ Carbon\Carbon::parse($invoiceinf->date)->format('Y-m-d') }}</td>
         <td>{{$invoiceinf->invoice_number}}</td>
-        <td>{{$invoiceinf->sup->name}}</td>
+        <td>
+        <a href="{{route('supplier.show' , $invoiceinf->sup->id)}}">{{$invoiceinf->sup->name}}</a>
+        </td>
         <td>{{$invoiceinf->no_classes}}</td>
         <td>{{$invoiceinf->total_rolls}}</td>
         <td>{{$invoiceinf->total_amount}}</td>
-
-
         @if($invoiceinf->image == null)
         <td>null</td>
         @else <td><img src="{{$invoiceinf->image}}" width="30" height="30" alt="g"/></td>

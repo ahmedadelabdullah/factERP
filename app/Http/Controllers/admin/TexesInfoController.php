@@ -18,7 +18,6 @@ class TexesInfoController extends Controller
     public function index()
     {
         return view('admin.pages.texes_invoices.index' , [
-//            'texrows' => TexesInvoice::paginate(10),
             'invoiceinfs'=> TexesInfo::paginate(10),
 
         ]);
@@ -58,9 +57,7 @@ class TexesInfoController extends Controller
         $data['total_amount'] = $request->total_amount;
         $data['comment'] = $request->comment;
         $data['no_classes'] = count($request->material);
-
         $info = TexesInfo::create($data);
-
         $inv_details = [];
         for ($i = 0 ; $i < count($request->material) ; $i++){
             $inv_details[$i]['material'] = $request->material[$i];
@@ -81,8 +78,6 @@ class TexesInfoController extends Controller
      */
     public function show($catch_inv_id)
     {
-//        $singlerow = TexesInfo::find($texesInfo);
-//        return view('admin.pages.texes_invoices.show',compact('singlerow'));
                 return view('admin.pages.texes_invoices.show',[
                     'invoiceinf' => TexesInfo::find($catch_inv_id),
                 ]);
