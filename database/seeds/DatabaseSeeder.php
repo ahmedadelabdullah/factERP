@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TexesInfoSeeder::class);
         $this->call(TexesInvoiceSeeder::class);
         $this->call(OreSeeder::class);
+        $this->call(CuttingSeeder::class);
+        $this->call(DressSeeder::class);
     }
 }

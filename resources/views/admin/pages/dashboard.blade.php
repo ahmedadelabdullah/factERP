@@ -34,7 +34,7 @@
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text h5 my-3"><a href="{{route('tex.index')}}">New Cutting</a></span>
+                            <span class="info-box-text h5 my-3"><a href="{{route('cutting.index')}}">New Cutting</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -54,27 +54,24 @@
                 </div>
 
                 <div class="col-12 col-sm-4 col-md-2">
-                    <div class="info-box">
-                        <span class="info-box-icon elevation-1 text-center"><img src="admin/dist/img/notebook.png"></span>
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
+
                         <div class="info-box-content">
-                            <span class="info-box-text h4">Materials</span>
-                            <span class="info-box-number">
-                  10
-                  <small>%</small>
-                </span>
+                            <span class="info-box-text h4"><a href="{{route('dress.index')}}">Models</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
                 </div>
+
                 <!-- /.col -->
                 <div class="col-12 col-sm-4 col-md-2">
                     <div class="info-box mb-3">
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text h4">Workers</span>
-                            <span class="info-box-number">41,410</span>
+                            <span class="info-box-text h5 my-3"><a href="{{route('journal.index')}}">Journal</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

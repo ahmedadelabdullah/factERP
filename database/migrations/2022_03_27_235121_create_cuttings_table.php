@@ -15,6 +15,16 @@ class CreateCuttingsTable extends Migration
     {
         Schema::create('cuttings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('model_number');
+            $table->unsignedBigInteger('no_pieces');
+            $table->string('model_name');
+            $table->string('materials');
+            $table->unsignedInteger('meterage');
+            $table->string('cutter');
+            $table->string('patronist');
+            $table->unsignedInteger('no_rolls')->nullable();
+            $table->unsignedInteger('no_colors')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

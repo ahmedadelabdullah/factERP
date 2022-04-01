@@ -11,6 +11,7 @@ class CuttingSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\admin\Cutting::class , 50)->create();
+
     }
 }
