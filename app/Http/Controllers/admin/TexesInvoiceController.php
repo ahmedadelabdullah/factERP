@@ -18,7 +18,6 @@ class TexesInvoiceController extends Controller
     public function index()
     {
         return view('admin.pages.texes_invoices.index' , [
-//            'texrows' => TexesInvoice::paginate(10),
             'invoiceinfs'=> TexesInfo::paginate(10)
 
         ]);
@@ -59,9 +58,6 @@ class TexesInvoiceController extends Controller
         return view('admin.pages.texes_invoices.show',[
         ]);
 
-//        $allrows = TexesInvoice::all();
-//
-//        return view('admin.pages.texes_invoices.show',compact('allrows'));
     }
 
     /**

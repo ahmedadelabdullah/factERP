@@ -34,7 +34,6 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-//        $add_supplier = $request->all();
         $name = $request->name;
         $title = $request->title;
         $supply = $request->supply;
@@ -86,9 +85,7 @@ class SupplierController extends Controller
      */
     public function update($supplier ,Request $request)
     {
-//        dd($supplier);
         $single_supplier = Supplier::findOrFail($supplier);
-//        dd($single_supplier);
         $single_supplier->update([
             'name' => $request->name,
             'mobile' => $request->mobile,

@@ -46,7 +46,7 @@
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text h5 my-3"><a href="{{route('tex.index')}}">Offices</a></span>
+                            <span class="info-box-text h5 my-3"><a href="{{route('office.index')}}">Offices</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -64,7 +64,17 @@
                     </div>
                     <!-- /.info-box -->
                 </div>
+                <div class="col-12 col-sm-4 col-md-2">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
+                        <div class="info-box-content">
+                            <span class="info-box-text h4"><a href="{{route('OfficeInvoice.index')}}">offices's Invoices</a></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
                 <!-- /.col -->
                 <div class="col-12 col-sm-4 col-md-2">
                     <div class="info-box mb-3">
@@ -72,6 +82,32 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text h5 my-3"><a href="{{route('journal.index')}}">Journal</a></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <!-- /.col -->
+                <div class="col-12 col-sm-4 col-md-2">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text h5 my-3"><a href="{{route('journal.index')}}">income</a></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <!-- /.col -->
+                <div class="col-12 col-sm-4 col-md-2">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text h5 my-3"><a href="{{route('journal.index')}}">OutCome</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

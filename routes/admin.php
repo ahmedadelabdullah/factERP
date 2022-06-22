@@ -21,6 +21,8 @@ Route::resource('/ore', 'admin\OreController');
 Route::resource('/cutting', 'admin\CuttingController');
 Route::resource('/dress', 'admin\DressController');
 Route::resource('/journal', 'admin\JournalController');
+Route::resource('/office', 'admin\OfficeController');
+Route::resource('/OfficeInvoice', 'admin\OfficeInvoiceController');
 
 
 

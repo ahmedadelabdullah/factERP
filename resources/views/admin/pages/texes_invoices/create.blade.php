@@ -44,8 +44,6 @@
 
             </div>
         </div>
-
-
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-5">
@@ -53,12 +51,9 @@
                 </div>
                 <div class="col-md-7">
                     <input type="number" class="form-control total_rolls" id="total_rolls" readonly placeholder="Total Rolls" name="total_rolls">
-
                 </div>
-
             </div>
         </div>
-
         <div class="col-md-4 offset-md-4">
             <div class="row">
                 <div class="col-md-5">
