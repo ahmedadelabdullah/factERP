@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class OfficeInvoice extends Model
 {
-    protected $fillable = ['customer','no_models','dress_id',
-        'office_id','date','comment','total_pieces','total_amount','image' , 'invoice_number'];
-
+    protected $fillable = ['customer' , 'invoice_number','no_models',
+       'date','comment','total_pieces','sub_total','total_amount','image'];
     protected $hidden = ['updated_at' , 'created_at'];
 
-    public function rows(){
+    public function rows()
+    {
         return $this->hasMany(OffInvoiceDetail::class , 'office_invoices_id' , 'id');
     }
 }

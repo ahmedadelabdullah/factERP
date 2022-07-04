@@ -12,7 +12,7 @@ class OfficeInvoiceSeeder extends Seeder
      */
     public function run()
     {
-        factory(OfficeInvoice::class , 100)->create();
+        factory(OfficeInvoice::class , 5)->create();
 
     }
 }

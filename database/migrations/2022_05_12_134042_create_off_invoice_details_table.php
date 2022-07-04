@@ -15,9 +15,8 @@ class CreateOffInvoiceDetailsTable extends Migration
     {
         Schema::create('off_invoice_details', function (Blueprint $table) {
             $table->id();
-            $table->string('material');
             $table->foreignId('office_invoices_id');
-            $table->string('related_models')->nullable();
+//            $table->string('related_models')->nullable();
             $table->unsignedSmallInteger('quantity');
             $table->unsignedFloat('unit_price')->default(0);
             $table->unsignedFloat('price')->default(0);

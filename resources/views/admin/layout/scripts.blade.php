@@ -25,6 +25,8 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard2.js')}}"></script>
+@stack('js')
 <script src="{{asset('admin/dist/js/pages/myscript.js')}}"></script>
+
 </body>
 </html>

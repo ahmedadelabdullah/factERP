@@ -19,8 +19,9 @@ class CreateDressesTable extends Migration
             $table->string('model_name');
             $table->unsignedFloat('meterage');
             $table->unsignedInteger('price');
-            $table->unsignedInteger('available');
+            $table->unsignedInteger('available'); //the available number of pieces
             $table->timestamps();
+
         });
     }
 

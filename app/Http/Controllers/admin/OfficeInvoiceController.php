@@ -18,7 +18,7 @@ class OfficeInvoiceController extends Controller
     public function index()
     {
 
-        $invoice = OfficeInvoice::paginate(15);
+        $invoice = OfficeInvoice::paginate(10);
         return view('admin.pages.offices_invoices.index', ['invoices' => $invoice]);
     }
 
@@ -40,11 +40,29 @@ class OfficeInvoiceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+
+        $data['customer'] = $request->customer;
+        $data['invoice_number'] = $request->invoice_number;
+        $data['date'] = $request->date;
+        $data['total_pieces'] = $request->total_pieces;
+        $data['sub_total'] = $request->sub_total;
+        $data['total_amount'] = $request->total_amount;
+        $info = OfficeInvoice::create($data);
+
+        $inv_details = [];
+        for ($i = 0 ; $i < count($request->quantity) ; $i++){
+//            $inv_details[$i]['office_invoices_id'] = $request->office_invoices_id[$i];
+            $inv_details[$i]['unit_price'] = $request->unit_price[$i];
+            $inv_details[$i]['quantity'] = $request->quantity[$i];
+            $inv_details[$i]['price'] = $request->price[$i];
+        }
+        $details = $info->rows()->createMany($inv_details);
+        dd($request->all());
+        return redirect('/OfficeInvoice');
     }
 
     /**

@@ -7,7 +7,7 @@
 
 @section('breadcramb')
     <li class="breadcrumb-item"><h4><a href="{{route('dashboard.index')}}">Dashboard</a>
-        /<a href="{{route('tex.index')}}"> All Invoices</a> / Create invoice</h4></li>
+        /<a href="{{route('tex.index')}}"> All Textile Invoices</a> / Create invoice</h4></li>
 @endsection
 
 @section('content')
@@ -70,10 +70,40 @@
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-5">
+                    <span class="label font-weight-bolder">Discount</span>
+                </div>
+                <div class="col-md-7">
+                    <input type="number" class="form-control discount" placeholder="Discount" name="discount">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-5">
+                    <span class="label font-weight-bolder">Sub_Total</span>
+                </div>
+                <div class="col-md-7">
+                    <input type="number" class="form-control sub_total" readonly placeholder="Sub_Total" name="sub_total">
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-5">
                     <span class="label font-weight-bolder">Total Amount</span>
                 </div>
                 <div class="col-md-7">
-                    <input type="number" class="form-control total_amount" id="total_amount" readonly placeholder="Total amount" name="total_amount">
+                    <input type="number" class="form-control total_amount" id="total_amount" placeholder="Total amount" name="total_amount">
 
                 </div>
 
@@ -99,11 +129,25 @@
     background-color: white;"/>
 <div class="cont row">
         <div class="repeated col-sm-12" id="0">
+            <div class="col-md-5 col-sm-1 office">
+                <div class="row">
+                    <div class="col-md-9">
+                        {{--                        <label for="inputPassword5" class="form-label  ">Model Name</label>--}}
+                        <select class="form-control d-inline-block mt-md-4 mt-sm-5" name="material[0]" required>
+                            <option value="">Model Name</option>
+                            @foreach($materials as $material)
+                                <option value="{{$material->id}}">{{$material->material}}</option>
+                            @endforeach
+                        </select>
 
-            <div class="col-md-3 col-sm-1">
-                <label for="inputPassword5" class="form-label  ">Material</label>
-                <input type="text" class="form-control material mt-md-4 mt-sm-5" id="material" name="material[0]" autocomplete="off">
+                    </div>
+
+                </div>
             </div>
+{{--            <div class="col-md-3 col-sm-1">--}}
+{{--                <label for="inputPassword5" class="form-label  ">Material</label>--}}
+{{--                <input type="text" class="form-control material mt-md-4 mt-sm-5" id="material" name="material[0]" autocomplete="off">--}}
+{{--            </div>--}}
             <div class="col-md-2">
                 <label for="inputPassword5" class="form-label">Rolls</label>
                 <input type="number" class="form-control Norolls mt-md-4 mt-sm-5" id="inputPassword5" name="Norolls[0]">
@@ -118,13 +162,13 @@
         </div>
         <div class="col-md-2">
             <label for="inputPassword12" class="form-label">Price</label>
-            <input type="number" class="price form-control mt-md-4 mt-sm-5" id="inputPassword12" name="price[0]" readonly>
+            <input type="number" class="price form-control mt-md-4 mt-sm-5" name="price[0]" readonly>
         </div>
 
             <div class="col-md-1 mt-2">
                 <label for="inputPassword5" class="form-label del"></label>
 
-                <button type="button" class="btn btn-danger mt-md-4 mt-sm-5" id="inputPassword5">Delete</button>
+                <button type="button" class="btn btn-danger mt-md-4 mt-sm-5">Delete</button>
             </div>
         </div>
 </div>
@@ -150,3 +194,5 @@
     </form>
     </div>
 @endsection
+
+

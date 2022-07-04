@@ -16,28 +16,26 @@ class CreateOfficeInvoicesTable extends Migration
         Schema::create('office_invoices', function (Blueprint $table) {
             $table->id();
             $table->string('customer');
-            $table->unsignedBigInteger('invoice_number');
+            $table->unsignedBigInteger('invoice_number')->unique();
             $table->unsignedBigInteger('no_models');
-            $table->foreignId('dress_id');
-            $table->foreignId('office_id');
             $table->date('date');
             $table->longText('comment')->nullable();
-            $table->unsignedInteger('total_quantity');
+            $table->unsignedInteger('total_pieces');
             $table->unsignedInteger('sub_total');
             $table->unsignedInteger('total_amount');
             $table->string('image');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('dress_id')
-                ->on('dresses')
-                ->references('id')
-                ->OnDelete('cascade');
-
-            $table->foreign('office_id')
-                ->on('offices')
-                ->references('id')
-                ->OnDelete('cascade');
+//            $table->foreign('dress_id')
+//                ->on('dresses')
+//                ->references('id')
+//                ->OnDelete('cascade');
+//
+//            $table->foreign('offices_id')
+//                ->on('offices')
+//                ->references('id')
+//                ->OnDelete('cascade');
         });
     }
 

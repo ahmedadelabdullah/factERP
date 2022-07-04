@@ -1,10 +1,10 @@
 @extends('admin.app')
-@section('title' , 'Texes invoices')
+@section('title' , 'Offices invoices')
 @section('breadcramb')
     <li class="breadcrumb-item"><a href="{{route('dashboard.index')}}">Dashboard</a> /invoices</li>
 @endsection
 @section('page_title')
-    <h1 class="m-0">All Invoice's Textile </h1>
+    <h1 class="m-0">All Offices Invoice </h1>
 @endsection
 @section('content')
     <div class="row">
@@ -13,7 +13,7 @@
             <!-- MAP & BOX PANE -->
             <div class="card m-5">
                 <div class="card-header">
-                    <h3 class="card-title">Textile Invoices</h3>
+                    <h3 class="card-title">Offices Invoices</h3>
                     <div class="card-tools">
                         <a type="button" class="btn btn-primary" href="{{route('OfficeInvoice.create')}}">Add new Invoice</a>
                     </div>
@@ -21,10 +21,11 @@
                 <table id="example2" class="table table-bordered table-hover w-100">
                     <thead>
                     <tr>
+                        <th>id</th>
                         <th>Invoice number</th>
                         <th>customer</th>
-                        <th>no models</th>
                         <th>date</th>
+                        <th>no models</th>
                         <th>total pieces</th>
                         <th>total amount</th>
                         <th>Image</th>
@@ -34,6 +35,7 @@
                     <tbody>
 @foreach($invoices as $invoice)
     <tr>
+        <td>{{$invoice->id}}</td>
         <td>{{$invoice->invoice_number}}</td>
         <td>{{$invoice->customer}}</td>
         <td>{{ Carbon\Carbon::parse($invoice->date)->format('Y-m-d') }}</td>
@@ -41,7 +43,7 @@
 {{--        <td>--}}
 {{--        <a href="{{route('supplier.show' , $invoice->sup->id)}}">{{$invoice->sup->name}}</a>--}}
         {{--        </td>--}}
-        <td>{{$invoice->total_amount}}</td>
+        <td>{{$invoice->sub_total}}</td>
         <td>{{$invoice->no_models}}</td>
         <td>{{$invoice->total_amount}}</td>
 {{--        @if($invoice->image == null)--}}

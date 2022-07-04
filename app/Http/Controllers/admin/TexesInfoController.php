@@ -32,6 +32,7 @@ class TexesInfoController extends Controller
     {
         return view('admin.pages.texes_invoices.create' , [
             'suppliers' => Supplier::all(),
+            'materials' => TexesInvoice::all(),
         ]);
     }
 
@@ -67,6 +68,7 @@ class TexesInfoController extends Controller
             $inv_details[$i]['price'] = $request->price[$i];
         }
         $details = $info->rows()->createMany($inv_details);
+        dd($details);
         return redirect('/tex');
     }
 

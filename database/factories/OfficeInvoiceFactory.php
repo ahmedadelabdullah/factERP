@@ -9,8 +9,8 @@ use Faker\Generator as Faker;
 $factory->define(OfficeInvoice::class, function (Faker $faker) {
     return [
         'customer' => Office::all()->random()->name,
-        'dress_id' => \App\admin\Dress::all()->random()->id,
-        'office_id' => Office::all()->random()->id,
+//        'dress_id' => \App\admin\Dress::all()->random()->id,
+//        'offices_id' => Office::all()->random()->id,
         'no_models' => $faker->numberBetween(1,4),
         'invoice_number' => $faker->numberBetween(1500,5000),
         'date' => $faker->date(),

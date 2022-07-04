@@ -1,4 +1,9 @@
+
+
+
 $(document).ready(function () {
+
+
 $('#invoice_details , #invoice_details_offices').on('keyup blur' , '.quantity' , function () {
     let $row = $(this).closest('.repeated');
     let quantity = $row.find('.quantity').val() || 0;
@@ -49,17 +54,21 @@ $('#invoice_details , #invoice_details_offices').on('keyup blur' , '.quantity' ,
         let cont = document.getElementById('cont');
        let rep = document.getElementById('0').cloneNode(true);
         rep.setAttribute('id' , numIncreament);
-
         cont.appendChild(rep);
-        $('.repeated:last select').attr('name' , 'model['+[numIncreament]+']');
-        $('.repeated:last .quantity').attr('name' , 'Nopieces['+[numIncreament]+']');
+        $('.repeated:last .select').val('');
+        $('.repeated:last .Nopieces').val('');
         $('.repeated:last .quantity').val('');
-        $('.repeated:last .unit_price').attr('name' , 'unit_price['+[numIncreament]+']');
         $('.repeated:last .unit_price').val('');
+        $('.repeated:last .price').val('');
+        $('.repeated:last .office').attr('name' , 'model['+[numIncreament]+']');
+        $('.repeated:last .Nopieces').attr('name' , 'Nopieces['+[numIncreament]+']');
+        $('.repeated:last .quantity').attr('name' , 'quantity['+[numIncreament]+']');
+        $('.repeated:last .unit_price').attr('name' , 'unit_price['+[numIncreament]+']');
+        $('.repeated:last .price').attr('name' , 'price['+[numIncreament]+']');
 
 
+        $('.no_models').val(numIncreament +1 );
         $('.repeated:last .btn').parent().addClass('del');
-       console.log(numIncreament);
     });
 
     // end  adding row in offices invoices page
@@ -77,31 +86,25 @@ $('#invoice_details , #invoice_details_offices').on('keyup blur' , '.quantity' ,
 
     $(document).on('click' , '.del' , function (e) {
         $(this).parent().remove();
+        let rows_number = parseInt($('.repeated').length); // The no created rows
+        $('.no_models').val(rows_number);
         $('.total_amount').val(sum_price('.price'));
         $('.total_rolls').val(sum_price('.Norolls'));
         $('.sub_total').val(sum_price('.price'));
+        let sub_total = $('.sub_total').val() || 0;
+        $('.total_amount ').val(sub_total - (sum_price('.quantity') * ($('.discount').val())));
+
 
     });
-    //
-    // let calculate_discount = function () {
-    //     let discount;
-    //     let discount_per_one = $('.discount').val() || 0;
-    //     let total_pieces = $('.discount').val() || 0;
-    //     // let total_amount = $('.total_amount').val() || 0;
-    //      discount += discount_per_one * total_pieces;
-    //     return discount;
-    //
-    // }
-
 
     // start  adding row in texes invoices page
     $(document).on('click' , '.add_row' , function () {
         let divCount = $('#invoice_details').find('.repeated:last').length;
         let numIncreament = divCount > 0 ? parseInt($('#invoice_details').find('.repeated:last').attr('id'))+ 1 : 0;
         $('.cont').append($(`<div class="repeated col-md-12" id='`+numIncreament+`'>
-            <div class="col-md-3 mt-3">
-                <input type="text" class="form-control material" name="material[`+numIncreament+`]" autocomplete="off">
             </div>
+                        <div class="col-md-2 mt-3">
+           </div>
             <div class="col-md-2 mt-3">
                 <input type="number" class="form-control Norolls" name="Norolls[`+numIncreament+`]">
             </div>
@@ -123,14 +126,11 @@ $('#invoice_details , #invoice_details_offices').on('keyup blur' , '.quantity' ,
             </div>
 
         </div>`));
+
+
+
+
     })
-
-
-
-
-
-
-
     $('.pickadate').pickadate({
         format: 'yyyy-mm-dd',
 selectMonth:true,

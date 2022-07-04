@@ -11,7 +11,7 @@ class TexesInvoiceSeeder extends Seeder
      */
     public function run()
     {
-        factory(TexesInvoice::class , 100)->create();
+        factory(TexesInvoice::class , 10)->create();
 
     }
 }
