@@ -6,6 +6,7 @@ use App\admin\Dress;
 use App\admin\Office;
 use App\admin\OfficeInvoice;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\invoiceRequest;
 use Illuminate\Http\Request;
 
 class OfficeInvoiceController extends Controller
@@ -18,7 +19,7 @@ class OfficeInvoiceController extends Controller
     public function index()
     {
 
-        $invoice = OfficeInvoice::paginate(10);
+        $invoice = OfficeInvoice::with('rows')->paginate(5);
         return view('admin.pages.offices_invoices.index', ['invoices' => $invoice]);
     }
 
@@ -42,26 +43,25 @@ class OfficeInvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(invoiceRequest $request)
     {
-
-        $data['customer'] = $request->customer;
+        $data['offices_id'] = $request->offices_id;
         $data['invoice_number'] = $request->invoice_number;
         $data['date'] = $request->date;
         $data['total_pieces'] = $request->total_pieces;
         $data['sub_total'] = $request->sub_total;
+        $data['image'] = $request->image;
         $data['total_amount'] = $request->total_amount;
         $info = OfficeInvoice::create($data);
 
         $inv_details = [];
         for ($i = 0 ; $i < count($request->quantity) ; $i++){
-//            $inv_details[$i]['office_invoices_id'] = $request->office_invoices_id[$i];
+            $inv_details[$i]['model'] = $request->model[$i];
             $inv_details[$i]['unit_price'] = $request->unit_price[$i];
             $inv_details[$i]['quantity'] = $request->quantity[$i];
             $inv_details[$i]['price'] = $request->price[$i];
         }
         $details = $info->rows()->createMany($inv_details);
-        dd($request->all());
         return redirect('/OfficeInvoice');
     }
 
@@ -71,20 +71,28 @@ class OfficeInvoiceController extends Controller
      * @param  \App\OfficeInvoice  $officeInvoice
      * @return \Illuminate\Http\Response
      */
-    public function show(OfficeInvoice $officeInvoice)
+    public function show($officeInvoice)
     {
-        //
-    }
 
+        return view('admin.pages.offices_invoices.show',[
+            'invoiceinf' => OfficeInvoice::find($officeInvoice),
+        ]);
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\OfficeInvoice  $officeInvoice
      * @return \Illuminate\Http\Response
      */
-    public function edit(OfficeInvoice $officeInvoice)
+    public function edit($officeInvoice)
     {
-        //
+        $singleRow = OfficeInvoice::findOrFail($officeInvoice);
+        return view('admin.pages.offices_invoices.edit',
+        ['edit_info' => $singleRow,
+            'offices' => Office::all(),
+            'dresses' => Dress::all()
+        ]);
     }
 
     /**
@@ -94,9 +102,27 @@ class OfficeInvoiceController extends Controller
      * @param  \App\OfficeInvoice  $officeInvoice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OfficeInvoice $officeInvoice)
+    public function update(invoiceRequest $request,$officeInvoice)
     {
-        //
+        $invoice = OfficeInvoice::whereId($officeInvoice)->first();
+        $data['offices_id'] = $request->offices_id;
+        $data['invoice_number'] = $request->invoice_number;
+        $data['date'] = $request->date;
+        $data['total_pieces'] = $request->total_pieces;
+        $data['sub_total'] = $request->sub_total;
+        $data['image'] = $request->image;
+        $data['total_amount'] = $request->total_amount;
+        $invoice ->update($data);
+        $invoice->rows()->delete();
+        $inv_details = [];
+        for ($i = 0 ; $i < count($request->quantity) ; $i++){
+            $inv_details[$i]['model'] = $request->model[$i];
+            $inv_details[$i]['unit_price'] = $request->unit_price[$i];
+            $inv_details[$i]['quantity'] = $request->quantity[$i];
+            $inv_details[$i]['price'] = $request->price[$i];
+        }
+        $details = $invoice->rows()->createMany($inv_details);
+        return redirect(route('OfficeInvoice.index'));
     }
 
     /**
@@ -105,8 +131,11 @@ class OfficeInvoiceController extends Controller
      * @param  \App\OfficeInvoice  $officeInvoice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OfficeInvoice $officeInvoice)
+    public function destroy($officeInvoice)
     {
-        //
+        $singleRow = OfficeInvoice::whereId($officeInvoice)->first();
+        $singleRow->delete();
+        return redirect(route('OfficeInvoice.index'));
+
     }
 }

@@ -81,6 +81,29 @@
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
                         <div class="info-box-content">
+                            <span class="info-box-text h4"><a href="{{route('OfficeAccounts.index')}}">offices's Accounts</a></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <div class="col-12 col-sm-4 col-md-2">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text h4"><a href="{{route('retrieved.index')}}">Retrieved</a></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <div class="col-12 col-sm-4 col-md-2">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
+
+                        <div class="info-box-content">
                             <span class="info-box-text h5 my-3"><a href="{{route('journal.index')}}">Journal</a></span>
                         </div>
                         <!-- /.info-box-content -->
@@ -119,8 +142,7 @@
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text h4">Makers</span>
-                            <span class="info-box-number">760</span>
+                            <span class="info-box-text h5 my-3"><a href="{{route('clients.index')}}">Clients</a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -129,7 +151,6 @@
                 <div class="col-12 col-sm-4 col-md-2">
                     <div class="info-box mb-3">
                         <span class="info-box-icon elevation-1"><img src="admin/dist/img/notebook.png"></span>
-
                         <div class="info-box-content">
                             <span class="info-box-text h4">Makers</span>
                             <span class="info-box-number">760</span>

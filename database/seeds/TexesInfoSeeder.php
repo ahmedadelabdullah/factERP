@@ -15,7 +15,7 @@ class TexesInfoSeeder extends Seeder
      */
     public function run()
     {
-        factory(TexesInfo::class , 5)->create();
+        factory(TexesInfo::class , 3)->create();
 
     }
 }

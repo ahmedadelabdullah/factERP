@@ -16,7 +16,7 @@ class CreateOffInvoiceDetailsTable extends Migration
         Schema::create('off_invoice_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('office_invoices_id');
-//            $table->string('related_models')->nullable();
+            $table->string('model');
             $table->unsignedSmallInteger('quantity');
             $table->unsignedFloat('unit_price')->default(0);
             $table->unsignedFloat('price')->default(0);
@@ -25,7 +25,7 @@ class CreateOffInvoiceDetailsTable extends Migration
             $table->foreign('office_invoices_id')
                 ->on('office_invoices')
                 ->references('id')
-                ->OnDelete('cascade');
+                ->cascadeOnDelete();
         });
     }
 

@@ -11,7 +11,7 @@ class OffInvoiceDetailSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\admin\OffInvoiceDetail::class , 5)->create();
+        factory(\App\admin\OffInvoiceDetail::class , 3)->create();
 
     }
 }

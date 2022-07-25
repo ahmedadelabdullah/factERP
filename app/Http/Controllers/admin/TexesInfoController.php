@@ -128,7 +128,6 @@ class TexesInfoController extends Controller
 
         $invoice ->update($data);
         $invoice->rows()->delete();
-
         $inv_details = [];
         for ($i = 0 ; $i < count($request->material) ; $i++){
             $inv_details[$i]['material'] = $request->material[$i];

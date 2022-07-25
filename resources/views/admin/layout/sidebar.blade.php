@@ -24,8 +24,6 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -35,7 +33,136 @@
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
-
+                    <li class="nav-item">
+                        <a href="#" class="nav-link {{Route::currentRouteName() == 'supplier.edit' ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                Opposites
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>create invoice</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>invoices</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link {{Route::currentRouteName() == 'supplier.edit' ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                row clothes
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>create invoice</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>invoices</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                Payments
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>create supplier</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>suppliers</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                               offices
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>offices</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>create office</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('OfficeInvoice.index')}}" class="nav-link {{Route::currentRouteName() == 'OfficeInvoice.index' ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                Office Invoice
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('OfficeInvoice.create')}}" class="nav-link {{Route::currentRouteName() == 'OfficeInvoice.create' ? 'active' : ''}}">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>create Office Invoice</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Ore</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
@@ -66,38 +193,71 @@
                             </li>
                         </ul>
                     </li>
+                </ul>
+                <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Level 2</p>
+                            <p>
+                                Level 2
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('dashboard.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Supplier</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Ore</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-circle nav-icon"></i>
-                    <p>Level 1</p>
-                </a>
-            </li>
-            <li class="nav-header">LABELS</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-danger"></i>
-                    <p class="text">Important</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-warning"></i>
-                    <p>Warning</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon far fa-circle text-info"></i>
-                    <p>Informational</p>
-                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>
+                                Level 2
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('dashboard.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                            <li class="nav-item">
+                                <a href="{{route('supplier.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Supplier</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ore.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Ore</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>

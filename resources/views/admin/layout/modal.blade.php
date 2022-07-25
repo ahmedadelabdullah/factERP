@@ -15,8 +15,7 @@
                 </button>
             </div>
             <div class="modal-body">
-{{--                Are you sure you want to delete the invoice with number {{$invoiceinf->invoice_number}}--}}
-{{--                which related to {{$invoiceinf->sup->name}}--}}
+{{--                Are you sure you want to delete the invoice
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

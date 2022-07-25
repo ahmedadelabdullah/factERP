@@ -15,7 +15,8 @@ class JournalController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.journals.index');
+        $data = Journal::paginate(5);
+        return view('admin.pages.journals.index' , ['data' => $data]);
     }
 
     /**

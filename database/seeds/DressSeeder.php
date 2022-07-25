@@ -11,7 +11,7 @@ class DressSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\admin\Dress::class , 50)->create();
+        factory(\App\admin\Dress::class , 5)->create();
 
     }
 }

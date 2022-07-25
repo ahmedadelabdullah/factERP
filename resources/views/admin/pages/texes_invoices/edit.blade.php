@@ -57,9 +57,6 @@
                         <input type="text" class="form-control material" id="material" name="material[0]"
                                autocomplete="off" value="{{$one_row->material}}">
                     </div>
-
-
-
                     <div class="col-md-2">
                         <input type="number" class="form-control Norolls" id="inputPassword5"
                                name="Norolls[0]" value="{{$one_row->Norolls}}">
@@ -77,11 +74,9 @@
                                readonly value="{{$one_row->price}}">
                     </div>
                     <div class="col-md-1">
-
                         <button type="reset" class="btn btn-primary" id="inputPassword5">Reset</button>
                     </div>
                     <div class="col-md-1">
-
                         <button type="button" class="btn btn-danger" id="inputPassword5">Delete</button>
                     </div>
                 </div>
